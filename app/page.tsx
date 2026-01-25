@@ -236,32 +236,16 @@ export default function Home() {
 
 
   return (
-    <Grid columns="2" gap="5" align="center" justify="between" height="100vh" p="5">
-      {/* <Box 
-        className="backdrop-blur-[100px]"
-        style={{
-          background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 1) 75%, rgba(255, 255, 255, 0.05) 100%)',
-          opacity: 0.2,
-          mixBlendMode: 'overlay'
-        }}
-      >
-        
-      </Box> */}
-      {/* <Box
-            className="backdrop-blur-[100px] h-[200px] w-[400px]"
-            style={{
-              position: 'relative',
-              // background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.4) 75%, rgba(255, 255, 255, 0.1) 100%)',
-              // border: '1px solid rgba(255, 255, 255, 0.18)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-            }}
-          >
-            <div style={{ position: 'relative', zIndex: 1, padding: '1rem' }}>
-              Prueba
-            </div>
-          </Box> */}
-
-      <Flex style={{ position: 'relative' }} className="h-full overflow-hidden">
+    <Grid columns={
+      {
+        initial: "1",
+        lg: "2",
+      }
+    } gap="5" align="center" justify="between" className="min-h-screen lg:h-screen" px="5" py={{
+      initial: "0",
+      lg: "5",
+    }}>
+      <Flex style={{ position: 'relative' }} className="h-screen lg:h-full overflow-hidden">
         <Image
           src={BG}
           alt="Background"
@@ -273,13 +257,28 @@ export default function Home() {
           <Inset>
             <Card className="border-0">
               <Flex direction="column" >
-                <Grid columns="2" align="center" gap="2" justify="center">
-                  <Heading size="8" weight="bold" wrap="pretty">
-                    <Em>
-                      Martinez Lara<wbr /> Santiago de la cruz
-                    </Em>
-                  </Heading>
-                  <Flex direction="column" gap="1" align="end">
+                <Grid columns={
+                  {
+                    initial: "1",
+                    sm: "2",
+                  }
+                } align="center" gap="2" justify="center">
+                  <Flex direction="column" gap="1">
+                    <Heading size="8" weight="bold" wrap="pretty">
+                      <Em>
+                        Martinez Lara<wbr /> Santiago de la cruz
+                      </Em>
+                    </Heading>
+                    <Text size="4">
+                      <Text weight="light">aka</Text> <Quote>Lara</Quote>
+                    </Text>
+                  </Flex>
+                  <Flex direction="column" gap="1" align={
+                    {
+                      initial: "start",
+                      sm: "end",
+                    }
+                  }>
                     <Text size="3" weight="bold">
                       Universidad Politécnica de San Luis Potosí
                     </Text>
@@ -294,10 +293,7 @@ export default function Home() {
                     </Flex>
                   </Flex>
                 </Grid>
-                <Flex justify="between" align="center" >
-                  <Text size="4">
-                    <Text weight="light">aka</Text> <Quote>Lara</Quote>
-                  </Text>
+                <Flex justify="end" align="center" >
                   <ThemeButton />
                 </Flex>
               </Flex>
@@ -306,7 +302,7 @@ export default function Home() {
         </Flex>
       </Flex>
 
-      <Flex className="h-full min-w-full w-full" justify="start" align="stretch" direction="column">
+      <Flex className="h-full min-w-full w-full lg:min-h-0" justify="start" align="stretch" direction="column">
         <Tabs.Root defaultValue="intro">
           <Tabs.List>
             <Tabs.Trigger value="intro">Intro</Tabs.Trigger>
