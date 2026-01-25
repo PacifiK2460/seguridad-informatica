@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Seguridad Informatica",
-  description: "Portafolio de proyectos de seguridad informática.",
+  description: "Portafolio de proyectos de seguridad informática",
 };
 
 export default function RootLayout({
@@ -29,9 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Theme accentColor="red" grayColor="mauve" radius="none" appearance="dark">
-          {children}
-        </Theme>
+        <ThemeProvider attribute="class">
+          <Theme accentColor="red" grayColor="mauve" radius="none">
+            <Toaster />
+            {children}
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );
