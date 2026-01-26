@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "@mdxeditor/editor/style.css";
+
 
 :root {
   --background: #ffffff;

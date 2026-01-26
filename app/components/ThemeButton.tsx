@@ -1,16 +1,17 @@
 "use client"
 
-import * as React from "react"
 import { useTheme } from "next-themes"
-import { Button, IconButton } from "@radix-ui/themes"
+import { IconButton, type IconButtonProps } from "@radix-ui/themes"
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
 
-export default function ThemeButton() {
+export default function ThemeButton(
+    props: IconButtonProps
+) {
     const { theme, setTheme } = useTheme()
     const toggleMode = () => setTheme(theme == 'light' ? 'dark' : 'light')
 
     return (
-        <IconButton onClick={toggleMode} variant="ghost">
+        <IconButton {...props} onClick={toggleMode}>
             {theme == 'light' ? <MoonIcon /> : <SunIcon />}
         </IconButton>
     )

@@ -236,317 +236,329 @@ export default function Home() {
 
 
   return (
-    <Grid columns={
-      {
-        initial: "1",
-        lg: "2",
-      }
-    } gap="5" align="center" justify="between" className="min-h-screen lg:h-screen" px={{
-      initial: "0",
-      lg: "5",
-    }} py={{
-      initial: "0",
-      lg: "5",
-    }}>
-      <Flex style={{ position: 'relative' }} className="h-screen lg:h-full overflow-hidden">
-        <Image
-          src={BG}
-          alt="Background"
-          fill
-          style={{ objectFit: 'cover' }}
-        />
+    <Flex direction="column">
+      <Grid columns={
+        {
+          initial: "1",
+          lg: "2",
+        }
+      } gap="5" align="center" justify="between" className="min-h-screen lg:h-screen" px={{
+        initial: "0",
+        lg: "5",
+      }} py={{
+        initial: "0",
+        lg: "5",
+      }}>
+        <Flex style={{ position: 'relative' }} className="h-screen lg:h-full overflow-hidden">
+          <Image
+            src={BG}
+            alt="Background"
+            fill
+            style={{ objectFit: 'cover' }}
+          />
 
-        <Flex direction="column" justify="end" style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}
-        >
-          <Inset>
-            <Card className="border-0">
-              <Flex direction="column" >
-                <Grid columns={
-                  {
-                    initial: "1",
-                    sm: "2",
-                  }
-                } align="center" gap="2" justify="center">
-                  <Flex direction="column" gap="1">
-                    <Heading size="8" weight="bold" wrap="pretty">
-                      <Em>
-                        Martinez Lara<wbr /> Santiago de la cruz
-                      </Em>
-                    </Heading>
-                    <Text size="4">
-                      <Text weight="light">aka</Text> <Quote>Lara</Quote>
-                    </Text>
-                  </Flex>
-                  <Flex direction="column" gap="1" align={
+          <Flex direction="column" justify="end" style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}
+          >
+            <Inset>
+              <Card className="border-0">
+                <Flex direction="column" >
+                  <Grid columns={
                     {
-                      initial: "start",
-                      sm: "end",
+                      initial: "1",
+                      sm: "2",
                     }
-                  }>
-                    <Text size="3" weight="bold">
-                      Universidad Politécnica de San Luis Potosí
-                    </Text>
-                    <Flex gap="2" align="center">
-                      <Text size="3" weight="light">
-                        CNO V - Seguridad Informática
-                      </Text>
-                      <Separator orientation="vertical" />
-                      <Text size="3" weight="light">
-                        9° Semestre
+                  } align="center" gap="2" justify="center">
+                    <Flex direction="column" gap="1">
+                      <Heading size="8" weight="bold" wrap="pretty">
+                        <Em>
+                          Martinez Lara<wbr /> Santiago de la cruz
+                        </Em>
+                      </Heading>
+                      <Text size="4">
+                        <Text weight="light">aka</Text> <Quote>Lara</Quote>
                       </Text>
                     </Flex>
+                    <Flex direction="column" gap="1" align={
+                      {
+                        initial: "start",
+                        sm: "end",
+                      }
+                    }>
+                      <Text size="3" weight="bold">
+                        Universidad Politécnica de San Luis Potosí
+                      </Text>
+                      <Flex gap="2" align="center">
+                        <Text size="3" weight="light">
+                          CNO V - Seguridad Informática
+                        </Text>
+                        <Separator orientation="vertical" />
+                        <Text size="3" weight="light">
+                          9° Semestre
+                        </Text>
+                      </Flex>
+                    </Flex>
+                  </Grid>
+                  <Flex justify="end" align="center" >
+                    <ThemeButton variant="ghost"/>
                   </Flex>
-                </Grid>
-                <Flex justify="end" align="center" >
-                  <ThemeButton />
                 </Flex>
-              </Flex>
-            </Card>
-          </Inset>
+              </Card>
+            </Inset>
+          </Flex>
         </Flex>
-      </Flex>
 
-      <Flex className="h-full min-w-full w-full lg:min-h-0" justify="start" align="stretch" direction="column" px={{
-        initial: "5",
-        lg: "0",
-      }}>
-        <Tabs.Root defaultValue="intro">
-          <Tabs.List>
-            <Tabs.Trigger value="intro">Intro</Tabs.Trigger>
-            <Tabs.Trigger value="lara">Lara</Tabs.Trigger>
-            <Tabs.Trigger value="nerd">Nerd Insights</Tabs.Trigger>
-            <Tabs.Trigger value="contact">Get In Touch</Tabs.Trigger>
-          </Tabs.List>
+        <Flex className="h-full min-w-full w-full lg:min-h-0" justify="start" align="stretch" direction="column" px={{
+          initial: "5",
+          lg: "0",
+        }}>
+          <Tabs.Root defaultValue="intro">
+            <Tabs.List>
+              <Tabs.Trigger value="intro">Intro</Tabs.Trigger>
+              <Tabs.Trigger value="lara">Lara</Tabs.Trigger>
+              <Tabs.Trigger value="nerd">Nerd Insights</Tabs.Trigger>
+              <Tabs.Trigger value="contact">Get In Touch</Tabs.Trigger>
+            </Tabs.List>
 
 
-          <Box pt="3">
-            <Tabs.Content value="intro">
-              <Flex my="5" direction="column" gap="3">
-                <Heading as="h2">
-                  Proposito
-                </Heading>
-                <Text>
-                  {/* // Proposito de la pagina */}
+            <Box pt="3">
+              <Tabs.Content value="intro">
+                <Flex my="5" direction="column" gap="3">
+                  <Heading as="h2">
+                    Proposito
+                  </Heading>
+                  <Text>
+                    {/* // Proposito de la pagina */}
 
-                  El propósito de esta página es servir como un portafolio digital que documenta mi aprendizaje y progreso en el campo de la seguridad informática. A través de este sitio, comparto mis proyectos, experiencias y conocimientos adquiridos durante mi formación académica y práctica en este ámbito.
-                </Text>
+                    El propósito de esta página es servir como un portafolio digital que documenta mi aprendizaje y progreso en el campo de la seguridad informática. A través de este sitio, comparto mis proyectos, experiencias y conocimientos adquiridos durante mi formación académica y práctica en este ámbito.
+                  </Text>
 
-                <Heading as="h2">
-                  Enfoque
-                </Heading>
-                <Text>
-                  {/* // seguridad informática, pruebas de penetración, análisis de vulnerabilidades */}
-                  El enfoque principal de este portafolio está en la seguridad informática, incluyendo áreas como pruebas de penetración y análisis de vulnerabilidades. A través de mis proyectos y experiencias documentadas aquí, demuestro mi capacidad para identificar y mitigar riesgos de seguridad en sistemas informáticos, así como mi compromiso con las mejores prácticas en ciberseguridad.
-                </Text>
+                  <Heading as="h2">
+                    Enfoque
+                  </Heading>
+                  <Text>
+                    {/* // seguridad informática, pruebas de penetración, análisis de vulnerabilidades */}
+                    El enfoque principal de este portafolio está en la seguridad informática, incluyendo áreas como pruebas de penetración y análisis de vulnerabilidades. A través de mis proyectos y experiencias documentadas aquí, demuestro mi capacidad para identificar y mitigar riesgos de seguridad en sistemas informáticos, así como mi compromiso con las mejores prácticas en ciberseguridad.
+                  </Text>
 
-                <Heading as="h2">
-                  Importancia
-                </Heading>
-                <Text>
-                  {/* // Importancia del portafolio como evidencia del proceso de aprendizaje. */}
-                  Este portafolio no solo muestra mis habilidades y conocimientos, sino que también sirve como evidencia tangible de mi proceso de aprendizaje y desarrollo profesional en el campo de la seguridad informática.
-                </Text>
+                  <Heading as="h2">
+                    Importancia
+                  </Heading>
+                  <Text>
+                    {/* // Importancia del portafolio como evidencia del proceso de aprendizaje. */}
+                    Este portafolio no solo muestra mis habilidades y conocimientos, sino que también sirve como evidencia tangible de mi proceso de aprendizaje y desarrollo profesional en el campo de la seguridad informática.
+                  </Text>
 
-              </Flex>
-            </Tabs.Content>
+                </Flex>
+              </Tabs.Content>
 
-            <Tabs.Content value="lara">
-              <section className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1 space-y-1.5">
-                    <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
-                    <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
-                      {RESUME_DATA.about["en"]}
-                    </p>
-                    <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
-                      <a
-                        className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                        href={RESUME_DATA.locationLink}
-                        target="_blank"
-                      >
-                        <GlobeIcon className="size-3" />
-                        {RESUME_DATA.location}
-                      </a>
-                    </p>
-                    <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
-                      {RESUME_DATA.contact.email ? (
-                        <Button
-                          className="size-8"
-                          variant="outline"
-                          // size="icon"
-                          asChild
+              <Tabs.Content value="lara">
+                <section className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex-1 space-y-1.5">
+                      <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
+                      <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+                        {RESUME_DATA.about["en"]}
+                      </p>
+                      <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+                        <a
+                          className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+                          href={RESUME_DATA.locationLink}
+                          target="_blank"
                         >
-                          <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                            <EnvelopeClosedIcon className="size-4" />
+                          <GlobeIcon className="size-3" />
+                          {RESUME_DATA.location}
+                        </a>
+                      </p>
+                      <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+                        {RESUME_DATA.contact.email ? (
+                          <Button
+                            className="size-8"
+                            variant="outline"
+                            // size="icon"
+                            asChild
+                          >
+                            <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                              <EnvelopeClosedIcon className="size-4" />
+                            </a>
+                          </Button>
+                        ) : null}
+                        {RESUME_DATA.contact.tel ? (
+                          <Button
+                            className="size-8"
+                            variant="outline"
+                            // size="icon"
+                            asChild
+                          >
+                            <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                              <MobileIcon className="size-4" />
+                            </a>
+                          </Button>
+                        ) : null}
+                        {RESUME_DATA.contact.social.map((social) => (
+                          <Button
+                            key={social.name}
+                            className="size-8"
+                            variant="outline"
+                            // size="icon"
+                            asChild
+                          >
+                            <a href={social.url}>
+                              <social.icon className="size-4" />
+                            </a>
+                          </Button>
+                        ))}
+                      </div>
+                      <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
+                        {RESUME_DATA.contact.email ? (
+                          <a href={`mailto:${RESUME_DATA.contact.email}`} key={RESUME_DATA.contact.email}>
+                            <span className="underline">{RESUME_DATA.contact.email}</span>
                           </a>
-                        </Button>
-                      ) : null}
-                      {RESUME_DATA.contact.tel ? (
-                        <Button
-                          className="size-8"
-                          variant="outline"
-                          // size="icon"
-                          asChild
-                        >
-                          <a href={`tel:${RESUME_DATA.contact.tel}`}>
-                            <MobileIcon className="size-4" />
+                        ) : null}
+                        {RESUME_DATA.contact.tel ? (
+                          <a href={`tel:${RESUME_DATA.contact.tel}`} key={RESUME_DATA.contact.tel}>
+                            <span className="underline">{RESUME_DATA.contact.tel}</span>
                           </a>
-                        </Button>
-                      ) : null}
-                      {RESUME_DATA.contact.social.map((social) => (
-                        <Button
-                          key={social.name}
-                          className="size-8"
-                          variant="outline"
-                          // size="icon"
-                          asChild
-                        >
-                          <a href={social.url}>
-                            <social.icon className="size-4" />
+                        ) : null}
+                        {RESUME_DATA.contact.social.map((social) => (
+                          <a href={`${social.url}`} key={social.url}>
+                            <span className="underline">{social.url}</span>
                           </a>
-                        </Button>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                    <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
-                      {RESUME_DATA.contact.email ? (
-                        <a href={`mailto:${RESUME_DATA.contact.email}`} key={RESUME_DATA.contact.email}>
-                          <span className="underline">{RESUME_DATA.contact.email}</span>
-                        </a>
-                      ) : null}
-                      {RESUME_DATA.contact.tel ? (
-                        <a href={`tel:${RESUME_DATA.contact.tel}`} key={RESUME_DATA.contact.tel}>
-                          <span className="underline">{RESUME_DATA.contact.tel}</span>
-                        </a>
-                      ) : null}
-                      {RESUME_DATA.contact.social.map((social) => (
-                        <a href={`${social.url}`} key={social.url}>
-                          <span className="underline">{social.url}</span>
-                        </a>
-                      ))}
+                    <Avatar className="size-28" src={RESUME_DATA.avatarUrl} fallback={"Lara"} />
+                  </div>
+                  <section>
+                    <h2 className="text-xl font-bold">About</h2>
+                    <p className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+                      {RESUME_DATA.summary["en"]}
+                    </p>
+                  </section>
+                  <section>
+                    <h2 className="text-xl font-bold">Skills</h2>
+                    <div className="flex flex-wrap gap-1">
+                      {RESUME_DATA.skills.map((skill) => {
+                        return (
+                          <Badge className="print:text-[10px]" key={skill}>
+                            {skill}
+                          </Badge>
+                        );
+                      })}
                     </div>
-                  </div>
-                  <Avatar className="size-28" src={RESUME_DATA.avatarUrl} fallback={"Lara"} />
-                </div>
-                <section>
-                  <h2 className="text-xl font-bold">About</h2>
-                  <p className="text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
-                    {RESUME_DATA.summary["en"]}
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-bold">Skills</h2>
-                  <div className="flex flex-wrap gap-1">
-                    {RESUME_DATA.skills.map((skill) => {
-                      return (
-                        <Badge className="print:text-[10px]" key={skill}>
-                          {skill}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </section>
+                  </section>
 
-                <section>
-                  <h2 className="text-xl font-bold">Competitions</h2>
-                  <div className="flex flex-wrap gap-1">
-                    {RESUME_DATA.competitions.map((skill) => {
-                      return (
-                        <Badge className="print:text-[10px]" key={skill["en"]}>
-                          {skill["en"]}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </section>
+                  <section>
+                    <h2 className="text-xl font-bold">Competitions</h2>
+                    <div className="flex flex-wrap gap-1">
+                      {RESUME_DATA.competitions.map((skill) => {
+                        return (
+                          <Badge className="print:text-[10px]" key={skill["en"]}>
+                            {skill["en"]}
+                          </Badge>
+                        );
+                      })}
+                    </div>
+                  </section>
 
-                <section>
-                  <Link href="https://cv.santiago-lara.dev/" target="_blank" rel="noopener noreferrer">
-                    <Button size="1" variant="soft">
-                      Ver CV Completo
-                      <ExternalLinkIcon />
-                    </Button>
-                  </Link>
-                </section>
-              </section>
-            </Tabs.Content>
-
-            <Tabs.Content value="nerd">
-              <DataList.Root>
-                <DataList.Item align="center">
-                  <DataList.Label minWidth="88px">Estatus</DataList.Label>
-                  <DataList.Value>
-                    <Badge color="jade" variant="soft" radius="full">
-                      Online
-                    </Badge>
-                  </DataList.Value>
-                </DataList.Item>
-
-                <DataList.Item>
-                  <DataList.Label minWidth="88px">URL</DataList.Label>
-                  <DataList.Value>
-                    <Link href="https://si.santiago-lara.dev/" target="_blank" rel="noopener noreferrer">
+                  <section>
+                    <Link href="https://cv.santiago-lara.dev/" target="_blank" rel="noopener noreferrer">
                       <Button size="1" variant="soft">
-                        si.santiago-lara.dev
+                        Ver CV Completo
                         <ExternalLinkIcon />
                       </Button>
                     </Link>
-                  </DataList.Value>
-                </DataList.Item>
+                  </section>
+                </section>
+              </Tabs.Content>
 
-                <DataList.Item>
-                  <DataList.Label>Deployment Infraestructure</DataList.Label>
-                  <DataList.Value>Vercel</DataList.Value>
-                </DataList.Item>
+              <Tabs.Content value="nerd">
+                <DataList.Root>
+                  <DataList.Item align="center">
+                    <DataList.Label minWidth="88px">Estatus</DataList.Label>
+                    <DataList.Value>
+                      <Badge color="jade" variant="soft" radius="full">
+                        Online
+                      </Badge>
+                    </DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>Network Infraestructure</DataList.Label>
-                  <DataList.Value>Cloudflare</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label minWidth="88px">URL</DataList.Label>
+                    <DataList.Value>
+                      <Link href="https://si.santiago-lara.dev/" target="_blank" rel="noopener noreferrer">
+                        <Button size="1" variant="soft">
+                          si.santiago-lara.dev
+                          <ExternalLinkIcon />
+                        </Button>
+                      </Link>
+                    </DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>NodeJS Version</DataList.Label>
-                  <DataList.Value>24.4.0</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label>Deployment Infraestructure</DataList.Label>
+                    <DataList.Value>Vercel</DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>pnpm Version</DataList.Label>
-                  <DataList.Value>10.28.1</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label>Network Infraestructure</DataList.Label>
+                    <DataList.Value>Cloudflare</DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>React Version</DataList.Label>
-                  <DataList.Value>19.2.3</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label>NodeJS Version</DataList.Label>
+                    <DataList.Value>24.4.0</DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>NexJS Version</DataList.Label>
-                  <DataList.Value>16.1.4</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label>pnpm Version</DataList.Label>
+                    <DataList.Value>10.28.1</DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>RadixUI Library Version</DataList.Label>
-                  <DataList.Value>3.2.1</DataList.Value>
-                </DataList.Item>
+                  <DataList.Item>
+                    <DataList.Label>React Version</DataList.Label>
+                    <DataList.Value>19.2.3</DataList.Value>
+                  </DataList.Item>
 
-                <DataList.Item>
-                  <DataList.Label>GitHub Repository Link</DataList.Label>
-                  <Link href="https://github.com/PacifiK2460/seguridad-informatica" target="_blank" rel="noopener noreferrer">
-                    <Button size="1" variant="soft">
-                      PacifiK2460/seguridad-informatica
-                      <ExternalLinkIcon />
-                    </Button>
-                  </Link>
-                </DataList.Item>
-              </DataList.Root>
+                  <DataList.Item>
+                    <DataList.Label>NexJS Version</DataList.Label>
+                    <DataList.Value>16.1.4</DataList.Value>
+                  </DataList.Item>
 
-            </Tabs.Content>
+                  <DataList.Item>
+                    <DataList.Label>RadixUI Library Version</DataList.Label>
+                    <DataList.Value>3.2.1</DataList.Value>
+                  </DataList.Item>
 
-            <Tabs.Content value="contact">
-              <ContactForm />
-            </Tabs.Content>
-          </Box>
-        </Tabs.Root>
+                  <DataList.Item>
+                    <DataList.Label>GitHub Repository Link</DataList.Label>
+                    <Link href="https://github.com/PacifiK2460/seguridad-informatica" target="_blank" rel="noopener noreferrer">
+                      <Button size="1" variant="soft">
+                        PacifiK2460/seguridad-informatica
+                        <ExternalLinkIcon />
+                      </Button>
+                    </Link>
+                  </DataList.Item>
+                </DataList.Root>
+
+              </Tabs.Content>
+
+              <Tabs.Content value="contact">
+                <ContactForm />
+              </Tabs.Content>
+            </Box>
+          </Tabs.Root>
+        </Flex>
+      </Grid>
+
+      <Flex px="5" className="w-full" direction="column"> 
+        <Separator orientation="horizontal" className="w-full" my="3" size="4" />
+        <Flex>
+           // Table of contents
+        </Flex>
+        <Flex>
+          // Content
+        </Flex>
       </Flex>
-    </Grid>
+    </Flex>
   );
 }
