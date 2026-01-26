@@ -1,33 +1,32 @@
+"use client";
 import { Flex, Heading, Text, Box, Button, TextField, TextArea } from "@radix-ui/themes";
-import Form from "next/form"
+import { toast } from "sonner";
+import { sendThankYouEmail } from "./actions";
 
 export default function ContactForm() {
-    async function handleSubmit(formData: FormData) {
-        "use server";
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
         const name = formData.get("name") as string;
         const email = formData.get("_replyto") as string;
-        const message = formData.get("message") as string;
+        const user_message = formData.get("message") as string;
+        const subject = `¡Gracias por contactarme, ${name}!`;
 
-        // First we get the access token, TO BE IMPLEMENTED
-        const rest_client = "https://accounts.zoho.com/oauth/v2/token";
-        const client_id = process.env.ZOHO_SELF_CLIENT_ID;
-        const redirect_uri = "localhost:3000";
-        const scope = "ZohoMail.accounts.READ"
-        const code = process.env.ZOHO_SELF_CLIENT_CODE;
-        const client_secret = process.env.ZOHO_SELF_CLIENT_SECRET;
-        const user_id = process.env.ZOHO_USER_ID;
-
-        const response = await fetch(`${rest_client}?grant_type=authorization_code&client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${redirect_uri}&code=${code}`, {
-            method: "POST",
-        });
-
-        const data = await response.json();
-        console.log("token_response_data", data);
-
+        try {
+            await sendThankYouEmail(email, name, user_message);
+            toast.success("¡Mensaje enviado con éxito!", {
+                description: "Revisa tu correo electrónico o la bandeja de SPAM para ver la confirmación.",
+            });
+        } catch (error) {
+            toast.error("Error al enviar el mensaje. Por favor, intenta de nuevo.", {
+                description: `Error: ${(error as Error).message}`,
+            });
+        }
     }
 
     return (
-        <Form action={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <Flex direction="column" gap="3" my="5">
                 <Heading as="h2">
                     Contactame
@@ -83,6 +82,6 @@ export default function ContactForm() {
                     </Button>
                 </Flex>
             </Flex>
-        </Form>
+        </form>
     )
 }

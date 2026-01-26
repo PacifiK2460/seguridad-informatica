@@ -536,15 +536,6 @@ export default function Home() {
 
             <Tabs.Content value="contact">
               <ContactForm />
-
-              <Callout.Root color="red">
-                <Callout.Icon>
-                  <InfoCircledIcon />
-                </Callout.Icon>
-                <Callout.Text>
-                  Esta sección está en desarrollo. Mientras tanto, puedes contactarme a través de mi correo electrónico o redes sociales listadas en la pestaña "Lara".
-                </Callout.Text>
-              </Callout.Root>
             </Tabs.Content>
           </Box>
         </Tabs.Root>

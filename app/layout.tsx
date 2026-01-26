@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class">
           <Theme accentColor="red" grayColor="mauve" radius="none">
-            <Toaster />
+            <Toaster richColors/>
             {children}
           </Theme>
         </ThemeProvider>
