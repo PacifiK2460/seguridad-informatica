@@ -241,7 +241,10 @@ export default function Home() {
         initial: "1",
         lg: "2",
       }
-    } gap="5" align="center" justify="between" className="min-h-screen lg:h-screen" px="5" py={{
+    } gap="5" align="center" justify="between" className="min-h-screen lg:h-screen" px={{
+      initial: "0",
+      lg: "5",
+    }} py={{
       initial: "0",
       lg: "5",
     }}>
@@ -253,7 +256,8 @@ export default function Home() {
           style={{ objectFit: 'cover' }}
         />
 
-        <Flex direction="column" justify="end" style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}>
+        <Flex direction="column" justify="end" style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}
+        >
           <Inset>
             <Card className="border-0">
               <Flex direction="column" >
@@ -302,7 +306,10 @@ export default function Home() {
         </Flex>
       </Flex>
 
-      <Flex className="h-full min-w-full w-full lg:min-h-0" justify="start" align="stretch" direction="column">
+      <Flex className="h-full min-w-full w-full lg:min-h-0" justify="start" align="stretch" direction="column" px={{
+        initial: "5",
+        lg: "0",
+      }}>
         <Tabs.Root defaultValue="intro">
           <Tabs.List>
             <Tabs.Trigger value="intro">Intro</Tabs.Trigger>
