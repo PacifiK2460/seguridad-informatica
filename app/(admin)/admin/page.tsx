@@ -1,9 +1,9 @@
 import { getEntries } from "@/logic/db.api";
-import { MagnifyingGlassIcon, PlusIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, MagnifyingGlassIcon, PlusIcon } from "@radix-ui/react-icons";
 import { Button, Card, Container, Flex, Heading, Table, Text, TextField } from "@radix-ui/themes";
 import Form from 'next/form'
 import Link from "next/link";
-import ThemeButton from "../components/ThemeButton";
+import ThemeButton from "../../components/ThemeButton";
 
 export default async function AdminPage(
     // Get props from "query" parameter
@@ -17,9 +17,17 @@ export default async function AdminPage(
     return (
         <Container p="5" className="w-full">
             <Flex direction="column" gap="2" className="w-full">
-                <Heading>
-                    Panel de Administración
-                </Heading>
+                <Flex align="center" gap="2">
+                    <Link href="/">
+                        <Button variant="soft" size="1" className="ml-auto">
+                            <ArrowLeftIcon />
+                            Regresar
+                        </Button>
+                    </Link>
+                    <Heading>
+                        Panel de Administración
+                    </Heading>
+                </Flex>
                 <Text>
                     Debido a lo pequeña que es la aplicación, todo mundo puede ver el contenido
                     del panel de administración. Solo aquellos que cuenten con el codigo TOTP

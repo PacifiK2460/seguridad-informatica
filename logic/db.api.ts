@@ -1,11 +1,10 @@
-import { config } from 'dotenv';
+"use server"
+
 import { drizzle } from 'drizzle-orm/libsql';
 import { eq, like, or } from "drizzle-orm";
-config({ path: '.env' }); // or .env.local
-
 import { entriesTable } from './schema';
 
-export const db = drizzle({
+const db = drizzle({
     connection: {
         url: process.env.TURSO_DATABASE_URL!,
         authToken: process.env.TURSO_AUTH_TOKEN!,
