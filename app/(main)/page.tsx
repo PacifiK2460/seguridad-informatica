@@ -4,10 +4,10 @@ export default function Page() {
     return (
         <Box>
             <Heading>
-                Página de inicio
+                Introducción
             </Heading>
             <Text>
-                Bienvenido a la página de inicio de tu aplicación Next.js. Aquí puedes agregar contenido, enlaces y cualquier otra cosa que desees mostrar a tus usuarios.
+                En esta sección se introducirá el concepto de seguridad informática, su importancia en el mundo actual y los objetivos que se buscan alcanzar con la implementación de medidas de seguridad.
             </Text>
         </Box>
     )
