@@ -31,7 +31,7 @@ export async function getEntries(query?: string) {
 export async function getEntryById(id: string) {
     const _id = Number(id);
     if (isNaN(_id)) {
-        throw new Error("Invalid ID");
+        return null;
     }
 
     const entry = await db.select().from(entriesTable).where(eq(entriesTable.id, _id)).limit(1);
@@ -49,7 +49,7 @@ export async function createEntry(title: string, content: string) {
 export async function updateEntry(id: string, title: string, content: string) {
     const _id = Number(id);
     if (isNaN(_id)) {
-        throw new Error("Invalid ID");
+        return null;
     }
     const result = await db.update(entriesTable)
         .set({ title, content })
@@ -61,7 +61,7 @@ export async function updateEntry(id: string, title: string, content: string) {
 export async function deleteEntry(id: string) {
     const _id = Number(id);
     if (isNaN(_id)) {
-        throw new Error("Invalid ID");
+        return null;
     }
     await db.delete(entriesTable).where(eq(entriesTable.id, _id));
 }
