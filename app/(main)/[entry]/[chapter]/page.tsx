@@ -1,10 +1,15 @@
 import { getEntryById } from "@/logic/db.api";
-import { Badge, Button, Card, Em, Flex, Heading, Separator, Text } from "@radix-ui/themes";
+import { Badge, Button, Card, Em, Flex, Heading, Separator, Text, ScrollArea } from "@radix-ui/themes";
 import { notFound } from "next/navigation";
 import { MarkdownRenderer } from "@/app/components/MarkdownRenderer";
 import { parseChapters } from "@/logic/chapter.utils";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon, DownloadIcon } from "@radix-ui/react-icons";
+// import { fromMarkdown } from 'react-markdown-toc'
+import { TOC } from 'react-markdown-toc/server'
+// import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/app/components/collapsible";
+import { ContentTOC } from "@/app/components/ContentTOC";
+
 
 export default async function EntryPage({
   params,
@@ -42,6 +47,9 @@ export default async function EntryPage({
   const previousChapter = chapterIndex > 0 ? chapters[chapterIndex - 1] : null;
   const nextChapter = chapterIndex < chapters.length - 1 ? chapters[chapterIndex + 1] : null;
 
+  const content = `## ${chapter.title} \n\n ${chapter.content}`;
+
+
   return (
     <Flex direction={{
       initial: "column-reverse",
@@ -64,14 +72,14 @@ export default async function EntryPage({
 
           {chapter.content ? (
             <Flex direction="column" gap="4" width="100%">
-              <Flex direction="row" justify="between" align="center" width="100%">
+              {/* <Flex direction="row" justify="between" align="center" width="100%">
                 {chapter.title && (
                   <Heading size="6" as="h1">
                     {chapter.title}
                   </Heading>
                 )}
-              </Flex>
-              <MarkdownRenderer content={chapter.content} />
+              </Flex> */}
+              <MarkdownRenderer content={content} />
             </Flex>
           ) : (
             <Text size="1" color="gray">
@@ -125,7 +133,7 @@ export default async function EntryPage({
       <Flex direction="column" justify="start" align="stretch" gap="2" width="100%" maxWidth={{
         initial: "100%",
         md: "300px"
-      }}>
+      }} className="md:sticky md:top-4 md:self-start md:max-h-[calc(100vh-2rem)] md:overflow-y-auto">
         <Flex direction="column" justify="between" align="stretch" gap="2" className="w-full" width="100%">
           <Button asChild variant="outline" className="w-full">
             <Link href={`/${entry.id}/download`} className="w-full justify-center">
@@ -135,26 +143,43 @@ export default async function EntryPage({
           </Button>
         </Flex>
 
-        <Card>
+        <Card className="w-full">
           <Flex direction="column" gap="2" width="100%">
             <Heading size="5" as="h2">
-              Contenido
+              Tabla de Contenidos
             </Heading>
-            {chapters.map((c, index) => (
-              <Flex key={index} direction="column" gap="2" width="100%">
-                <Link href={`/${entry.id}/${encodeURIComponent(c.title)}`} className="w-full" scroll={false}>
-                  <Flex direction="row" align="center" gap="2">
-                    <Badge>
-                      #{index + 1}
-                    </Badge>
-                    <Text size="2">
-                      {c.title || "Sin título"}
-                    </Text>
-                  </Flex>
-                </Link>
-                <Separator className="w-full" size="4" />
-              </Flex>
-            ))}
+            <ScrollArea type="auto" scrollbars="vertical" style={{ height: "30dvh" }}>
+              <TOC markdown={content}
+                className="ml-4 [&_a]:transition-all [&_a]:ease-all [&_a]:hover:font-bold [&_a]:data-[active=true]:font-bold"
+                ul='pl-4 py-1'
+                li="py-1"
+                scrollAlign="start" />
+            </ScrollArea>
+          </Flex>
+        </Card>
+
+        <Card className="w-full h-full">
+          <Flex direction="column" gap="2" height="100%" width="100%">
+            <Heading size="5" as="h2">
+              Capitulos
+            </Heading>
+            <ScrollArea className="h-[50px]" type="auto" scrollbars="vertical">
+              {chapters.map((c, index) => (
+                <Flex key={index} direction="column" gap="2" width="100%">
+                  <Link href={`/${entry.id}/${encodeURIComponent(c.title)}`} className="w-full" scroll={false}>
+                    <Flex direction="row" align="center" gap="2">
+                      <Badge>
+                        #{index + 1}
+                      </Badge>
+                      <Text size="2">
+                        {c.title || "Sin título"}
+                      </Text>
+                    </Flex>
+                  </Link>
+                  <Separator className="w-full" size="4" />
+                </Flex>
+              ))}
+            </ScrollArea>
           </Flex>
         </Card>
       </Flex>
