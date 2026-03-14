@@ -247,7 +247,7 @@ export default async function RootLayout({
     const entries = await getEntries();
 
     return (
-        <Flex direction="column" align="center" justify="center" className="w-full h-full" width="100%">
+        <Flex direction="column" className="w-full" width="100%" height="100%">
             <Grid columns={
                 {
                     initial: "1",
@@ -572,6 +572,7 @@ export default async function RootLayout({
                 md: "row",
             }}
                 width="100%"
+                height="100%"
                 gap="5"
                 align="start"
                 justify="start"
@@ -583,7 +584,9 @@ export default async function RootLayout({
                 px="5"
 
             >
-                <Flex direction="column" justify="center" align="start" gap="2" mb="3">
+                <Flex direction="column" justify="center" align="start" gap="2" mb="3"
+                    className="md:sticky md:top-4 md:self-start md:max-h-[calc(100vh-2rem)] md:overflow-y-auto"
+                >
                     <Heading size="5" weight="bold">
                         Contenido
                     </Heading>
@@ -594,7 +597,7 @@ export default async function RootLayout({
                         entries ? (
                             entries.map((entry) => (
                                 <Link key={entry.id} href={`/${entry.id}`}
-                                    className="hover:font-bold animate-in fade-in">
+                                    className="hover:font-bold animate-all fade-in fade-out duration-500">
                                     <Text size="2" color="gray">
                                         {entry.title}
                                     </Text>
