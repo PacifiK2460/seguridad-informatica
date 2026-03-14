@@ -43,7 +43,10 @@ export default async function EntryPage({
   const nextChapter = chapterIndex < chapters.length - 1 ? chapters[chapterIndex + 1] : null;
 
   return (
-    <Flex direction="row" justify="center" align="start" gap="2" width="100%" >
+    <Flex direction={{
+      initial: "column-reverse",
+      md: "row"
+    }} justify="center" align="stretch" gap="2" width="100%" >
       <Card className="w-full" >
 
         <Flex direction="column" justify="center" align="start" gap="2" width="100%">
@@ -119,13 +122,18 @@ export default async function EntryPage({
         </Flex>
       </Card>
 
-      <Flex direction="column" align="stretch" gap="2" width="100%" maxWidth="300px">
-        <Link href={`/${entry.id}/download`}>
-          <Button variant="outline">
-            Descargar contenido en formato PDF
-            <DownloadIcon />
+      <Flex direction="column" justify="start" align="stretch" gap="2" width="100%" maxWidth={{
+        initial: "100%",
+        md: "300px"
+      }}>
+        <Flex direction="column" justify="between" align="stretch" gap="2" className="w-full" width="100%">
+          <Button asChild variant="outline" className="w-full">
+            <Link href={`/${entry.id}/download`} className="w-full justify-center">
+              Descargar contenido en formato PDF
+              <DownloadIcon />
+            </Link>
           </Button>
-        </Link>
+        </Flex>
 
         <Card>
           <Flex direction="column" gap="2" width="100%">
