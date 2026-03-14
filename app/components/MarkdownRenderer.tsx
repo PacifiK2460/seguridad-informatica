@@ -57,7 +57,9 @@ export function MarkdownRenderer({ content }: { content: string }) {
                                         <InfoCircledIcon />
                                     </Callout.Icon>
                                     <Callout.Text my="-5">
-                                        {children}
+                                        <Text>
+                                            {children}
+                                        </Text>
                                     </Callout.Text>
                                 </Callout.Root>
                             )

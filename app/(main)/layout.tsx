@@ -247,13 +247,13 @@ export default async function RootLayout({
     const entries = await getEntries();
 
     return (
-        <Flex direction="column" className="w-full" width="100%" height="100%">
+        <Box>
             <Grid columns={
                 {
                     initial: "1",
                     lg: "2",
                 }
-            } gap="5" align="center" justify="between" className="minh-[100dvh] lg:h-[100dvh]"
+            } gap="5" align="center" justify="between" className="min-h-[100dvh]"
 
             >
                 <Flex style={{ position: 'relative' }} className="h-screen lg:h-full overflow-hidden">
@@ -343,7 +343,6 @@ export default async function RootLayout({
                                         Proposito
                                     </Heading>
                                     <Text>
-                                        {/* // Proposito de la pagina */}
 
                                         El propósito de esta página es servir como un portafolio digital que documenta mi aprendizaje y progreso en el campo de la seguridad informática. A través de este sitio, comparto mis proyectos, experiencias y conocimientos adquiridos durante mi formación académica y práctica en este ámbito.
                                     </Text>
@@ -352,7 +351,6 @@ export default async function RootLayout({
                                         Enfoque
                                     </Heading>
                                     <Text>
-                                        {/* // seguridad informática, pruebas de penetración, análisis de vulnerabilidades */}
                                         El enfoque principal de este portafolio está en la seguridad informática, incluyendo áreas como pruebas de penetración y análisis de vulnerabilidades. A través de mis proyectos y experiencias documentadas aquí, demuestro mi capacidad para identificar y mitigar riesgos de seguridad en sistemas informáticos, así como mi compromiso con las mejores prácticas en ciberseguridad.
                                     </Text>
 
@@ -360,7 +358,6 @@ export default async function RootLayout({
                                         Importancia
                                     </Heading>
                                     <Text>
-                                        {/* // Importancia del portafolio como evidencia del proceso de aprendizaje. */}
                                         Este portafolio no solo muestra mis habilidades y conocimientos, sino que también sirve como evidencia tangible de mi proceso de aprendizaje y desarrollo profesional en el campo de la seguridad informática.
                                     </Text>
 
@@ -572,11 +569,10 @@ export default async function RootLayout({
                 md: "row",
             }}
                 width="100%"
-                height="100%"
                 gap="5"
                 align="start"
-                justify="start"
-                className="w-full"
+                justify="between"
+                height="100%"
                 py={{
                     initial: "0",
                     lg: "5",
@@ -585,36 +581,40 @@ export default async function RootLayout({
 
             >
                 <Flex direction="column" justify="center" align="start" gap="2" mb="3"
-                    className="md:sticky md:top-4 md:self-start md:max-h-[calc(100vh-2rem)] md:overflow-y-auto"
+                    className="md:self-start sticky top-4" 
                 >
-                    <Heading size="5" weight="bold">
-                        Contenido
-                    </Heading>
+                    <Flex direction="column" justify="center" align="start" gap="2">
+                        <Heading size="5" weight="bold">
+                            Contenido
+                        </Heading>
 
-                    <Separator orientation="horizontal" />
+                        <Separator orientation="horizontal" />
 
-                    { // Table of contents
-                        entries ? (
-                            entries.map((entry) => (
-                                <Link key={entry.id} href={`/${entry.id}`}
-                                    className="hover:font-bold animate-all fade-in fade-out duration-500">
-                                    <Text size="2" color="gray">
-                                        {entry.title}
+                        { // Table of contents
+                            entries ? (
+                                entries.map((entry) => (
+                                    <Link key={entry.id} href={`/${entry.id}`}
+                                        className="hover:font-bold animate-all fade-in fade-out duration-500">
+                                        <Text size="2" color="gray">
+                                            {entry.title}
+                                        </Text>
+                                    </Link>
+                                ))
+                            ) : (
+                                <Flex align="center" justify="center" gap="2">
+                                    <Text size="1" weight="light">
+                                        Sin entradas disponibles
                                     </Text>
-                                </Link>
-                            ))
-                        ) : (
-                            <Flex align="center" justify="center" gap="2">
-                                <Text size="1" weight="light">
-                                    Sin entradas disponibles
-                                </Text>
-                            </Flex>
-                        )
-                    }
+                                </Flex>
+                            )
+                        }
+                    </Flex>
                 </Flex>
 
-                {children}
+                <Flex mb="4" direction="column" justify="start" align="stretch" gap="5" flexGrow="1">
+                    {children}
+                </Flex>
             </Flex>
-        </Flex>
+        </Box>
     );
 }

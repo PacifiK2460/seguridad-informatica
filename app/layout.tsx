@@ -27,20 +27,21 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const entries = await getEntries();
+  // const entries = await getEntries();
 
   return (
-    <html lang="en"
+    <html lang="es"
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class">
-          <Theme accentColor="red" grayColor="mauve" radius="none">
-            <Toaster richColors closeButton />
-            {children}
-          </Theme>
-        </ThemeProvider>
+      <body>
+        <div style={{ display: "block", position: "static" }}>
+          <ThemeProvider attribute="class">
+            <Theme accentColor="red" grayColor="mauve" radius="none">
+              <Toaster richColors closeButton />
+              {children}
+            </Theme>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );
