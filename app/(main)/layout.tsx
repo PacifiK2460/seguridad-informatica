@@ -567,7 +567,10 @@ export default async function RootLayout({
             </Grid>
 
 
-            <Flex direction="row"
+            <Flex direction={{
+                initial: "column",
+                md: "row",
+            }}
                 width="100%"
                 gap="5"
                 align="start"
